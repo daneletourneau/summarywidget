@@ -59,9 +59,11 @@ HTMLWidgets.widget({
           if (keys.length == 1) {
             value = keys;
 	    const valuestr = String(value[0])
-            const splitvals = valuestr.split("\\");
-	    const last3 = splitvals.slice(-3);
+	    const splitvals1 = valuestr.split(":");
+            const splitvals2 = splitvals1[1].split("\\");
+	    const last3 = splitvals2.slice(-3);
 	    const text = "Download workbook (Reporting period " + last3[0].substring(0, 4) + "/" + last3[0].substring(4) + ", " + last3[1] + ")"
+	    value = last3[2]
 	    el.innerText = text;
           } else {
             value = '';
